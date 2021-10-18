@@ -55,10 +55,10 @@ namespace ParserHtml
                         continue;
                     }
 
+                    Console.WriteLine("Загрузка началась...");
+
                     LoadWeb(url);
                     uploadToFile(filePath);
-
-                    Console.WriteLine("Загрузка началась...");
 
                     var cleanedText = TextCleaner.ClearText(filePath);
 
