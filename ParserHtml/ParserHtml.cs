@@ -9,19 +9,19 @@ namespace ParserHtml
     public enum State { RUN, EXIT };
     class ParserHtml : IWorkingWithHtml
     {
-        private State state;
+        private State _state;
         public Uri Url { get; private set; }
 
         public void LoadWeb(string url)
         {
-                Url = new Uri(url);
+            Url = new Uri(url);
         }
 
         /// <summary>
         /// Метод загружает скачанную страницу в файл по указаному пути
         /// </summary>
         /// <param name="filePath">Путь к файлу</param>
-        private void uploadToFile(string filePath) 
+        private void uploadToFile(string filePath)
         {
             try
             {
@@ -35,13 +35,13 @@ namespace ParserHtml
         }
 
 
-        public void Run() 
+        public void Run()
         {
-            state = State.RUN;
+            _state = State.RUN;
 
             string filePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Test.txt";
-            
-            while (state != State.EXIT)
+
+            while (_state != State.EXIT)
             {
                 try
                 {
@@ -51,7 +51,7 @@ namespace ParserHtml
 
                     if (url == "exit")
                     {
-                        state = State.EXIT;
+                        _state = State.EXIT;
                         continue;
                     }
 
@@ -78,7 +78,6 @@ namespace ParserHtml
                     Console.WriteLine($"Лог сохранён: {Logger.FilePath}");
                 }
             }
-
         }
     }
 }
