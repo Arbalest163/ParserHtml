@@ -69,7 +69,7 @@ namespace ParserHtml
                     Console.WriteLine("Сохранение в базу данных...");
                     var db = new DataBase();
                     db.UploadToSql(dictionaryText.Dictionary);
-                    Console.WriteLine("Словарь успешно сохранён в базу данных. ");
+                    Console.WriteLine("Словарь успешно сохранён в базу данных.");
                 }
                 catch (Exception ex)
                 {
